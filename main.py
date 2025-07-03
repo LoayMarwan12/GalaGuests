@@ -10,8 +10,6 @@ from reportlab.lib.utils import ImageReader
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 @app.get("/", response_class=HTMLResponse)
 async def read_form(request: Request):
     return templates.TemplateResponse("form.html", {"request": request})
